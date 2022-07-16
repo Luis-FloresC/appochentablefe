@@ -1,16 +1,18 @@
 const Field = ({
-    name = "",
-    labelText = "",
-    type = "text",
-    value = "",
-    onChange = ()=>{},
-    ...rest
-  }) => {
-    return (
-     <fieldset>
-         <label htmlFor={name}>{labelText}</label>
-         <input type={type} name={name} id={name} value={value} {...rest} onChange={onChange}/>
-     </fieldset>
-    );
-  }
-  export default Field;
+  name = "",
+  labelText = "",
+  type = "text",
+  value = "",
+  onChange = () => { },
+  ...rest
+}) => {
+  return (
+    <div className="form-control">
+      <label className="label">
+        <span className="label-text">{labelText}</span>
+      </label>
+      <input type={type} id={name} name={name} value={value} onChange={onChange} {...rest} />
+    </div>
+  );
+}
+export default Field;

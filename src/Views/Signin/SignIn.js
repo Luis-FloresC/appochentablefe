@@ -15,30 +15,50 @@ import {Field}  from '../../Components/InputField';
        useAbsoluteCenter={true}
        pageTitle="Crear Cuenta"
      >
-       <form className="flex-forms">
-         <Field
-           name="email"
-           labelText = "Correo Electrónico"
-           type = "email"
-           value = {emailValue}
-           onChange = {onChangeHandler}
-           className="inputText"
-           placeHolder="Ingrese su usuario"
-         />
-         <Field
-           name="password"
-           labelText="Contraseña"
-           type="password"
-           value={passwordValue}
-           onChange = {onChangeHandler}
-           className="inputText"
-           placeHolder="Ingrese su contraseña"
-         />
-          
-         <button onClick={onSignInClick} className="btn btn-primary espacio-y4">Crear Cuenta</button>
-         <button onClick={onLoginClick} className="btn btn-secondary espacio-y4">Ya cuento con una Cuenta</button>
-         
-       </form>
+      <div className="hero min-h-screen bg-base-200">
+        <div className="hero-content flex-col lg:flex-row-reverse">
+          <div className="text-center lg:text-left">
+            <h1 className="text-5xl font-bold">Login now!</h1>
+            <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+            <button className="btn bg-cyan-700 hover:bg-cyan-800 text-white" onClick={onLoginClick}>Ya cuento con una cuenta</button>
+          </div>
+
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div className="card-body">
+              <form>
+                <Field
+                  name="email"
+                  labelText="Correo Electrónico"
+                  type="email"
+                  value={emailValue}
+                  onChange={onChangeHandler}
+                  className="input input-bordered"
+                  placeHolder="Ingrese su Correo Electrónico"
+                />
+                <Field
+                  name="password"
+                  labelText="Contraseña"
+                  type="password"
+                  value={passwordValue}
+                  onChange={onChangeHandler}
+                  className="input input-bordered"
+                  placeHolder="Ingrese su contraseña"
+                />
+                <div className="form-control">
+                  <label className="label">
+                    <button className="label-text-alt link link-hover">Olvido su contraseña?</button>
+                  </label>
+
+                </div>
+                <div className="form-control mt-6">
+                  <button onClick={onSignInClick} className="btn bg-green-500 hover:bg-green-600 text-white">Crear Cuenta</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
      </Page>
    );
  }

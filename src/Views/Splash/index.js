@@ -13,7 +13,8 @@ const Splash = () => {
       useAbsoluteCenter={true}
       showNavBar={false}
     >
-      <h1 style={h1SplashStyle}>Ochenta App <br /> v1.0.0</h1>
+      <h1 style={h1SplashStyle} className="text-black">Ochenta App <br /> v1.0.0 <br />  <progress class="progress w-56"></progress> </h1>
+     
     </Page>
   )
 }

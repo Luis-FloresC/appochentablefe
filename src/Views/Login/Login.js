@@ -19,8 +19,8 @@ const LoginUx = ({
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+          <h1 className="text-5xl font-bold">Registrarse ahora!</h1> 
+            <p className="py-6">Proyecto creado en la clase de seminario de software 1801</p>
             <button className="btn bg-cyan-700 hover:bg-cyan-800 text-white" onClick={onSignInClick}>Crear una cuenta nueva</button>
           </div>
 
@@ -34,7 +34,7 @@ const LoginUx = ({
                   value={emailValue}
                   onChange={onChangeHandler}
                   className="input input-bordered"
-                  placeHolder="Ingrese su Correo Electrónico"
+                  placeholder="Ingrese su Correo Electrónico"
                 />
                 <Field
                   name="password"
@@ -43,7 +43,7 @@ const LoginUx = ({
                   value={passwordValue}
                   onChange={onChangeHandler}
                   className="input input-bordered"
-                  placeHolder="Ingrese su contraseña"
+                  placeholder="Ingrese su contraseña"
                 />
                 <div className="form-control">
                   <label className="label">

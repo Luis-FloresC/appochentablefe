@@ -1,25 +1,25 @@
 import Page from "../../Components/Page";
 
-import {Field}  from '../../Components/InputField';
+import { Field } from '../../Components/InputField';
 
- const SignInUx = ({
-   emailValue = "",
-   passwordValue="",
-   onChangeHandler = () => { },
-   onSignInClick = () => { },
-   onLoginClick = () => { }
- }) => {
-   return (
-     <Page
-       showNavBar={true}
-       useAbsoluteCenter={true}
-       pageTitle="Crear Cuenta"
-     >
+const SignInUx = ({
+  emailValue = "",
+  passwordValue = "",
+  onChangeHandler = () => { },
+  onSignInClick = () => { },
+  onLoginClick = () => { }
+}) => {
+  return (
+    <Page
+      showNavBar={true}
+      useAbsoluteCenter={true}
+      pageTitle="Crear Cuenta"
+    >
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+            <h1 className="text-5xl font-bold">Iniciar sesión ahora!</h1> 
+            <p className="py-6">Proyecto creado en la clase de seminario de software 1801</p>
             <button className="btn bg-cyan-700 hover:bg-cyan-800 text-white" onClick={onLoginClick}>Ya cuento con una cuenta</button>
           </div>
 
@@ -33,7 +33,7 @@ import {Field}  from '../../Components/InputField';
                   value={emailValue}
                   onChange={onChangeHandler}
                   className="input input-bordered"
-                  placeHolder="Ingrese su Correo Electrónico"
+                  placeholder="Ingrese su Correo Electrónico"
                 />
                 <Field
                   name="password"
@@ -42,7 +42,7 @@ import {Field}  from '../../Components/InputField';
                   value={passwordValue}
                   onChange={onChangeHandler}
                   className="input input-bordered"
-                  placeHolder="Ingrese su contraseña"
+                  placeholder="Ingrese su contraseña"
                 />
                 <div className="form-control">
                   <label className="label">
@@ -59,8 +59,9 @@ import {Field}  from '../../Components/InputField';
 
         </div>
       </div>
-     </Page>
-   );
- }
+   
+    </Page>
+  );
+}
 
- export default SignInUx;
+export default SignInUx;

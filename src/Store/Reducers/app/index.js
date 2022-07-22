@@ -2,6 +2,7 @@ const defaultValue = {
     isLoading: false,
     appLoaded: false,
     error: null,
+    data:null
 }
 
 const reducer = (state = defaultValue, action = { type: "NONE", payload: null }) => {
@@ -10,7 +11,8 @@ const reducer = (state = defaultValue, action = { type: "NONE", payload: null })
         case "APP_LOADING":
             return {
                 ...state,
-                isLoading: payload,
+                isLoading: payload.isLoading,
+                data: payload.version
             };
         case "APP_LOADED":
             return {

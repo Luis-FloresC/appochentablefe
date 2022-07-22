@@ -1,13 +1,24 @@
+import getVersionAPi from "../../Services/api/version";
 export const APP_LOADING = 'APP_LOADING';
 export const APP_LOADED = 'APP_LOADED';
 export const APP_ERROR = 'APP_ERROR';
 export const APP_ERROR_CLEAR = 'APP_ERROR_CLEAR';
 
-export const app_start_loading = (dispatch) => {
-    dispatch({
-        type: APP_LOADING,
-        payload: true,
-    });
+export const app_start_loading = async (dispatch) => {
+    try {
+        
+        const {data} = await getVersionAPi();
+        dispatch({
+            type: APP_LOADING,
+            payload: {isLoading: true,version: data},
+        });
+    } catch (ex) {
+        dispatch({
+            type: APP_ERROR,
+            payload: ex,
+        });
+    }
+    
 }
 
 export const app_stop_loading = (dispatch) => {

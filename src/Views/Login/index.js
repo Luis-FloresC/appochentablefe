@@ -1,28 +1,44 @@
 import LoginUx from "./Login";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { submitLogin, cleanLoginError } from './LoginActions';
+import { useSelector, useDispatch } from 'react-redux';
 const Login = () => {
   const Navigator = useNavigate();
+  const dispatch = useDispatch();
   const [formValues, setFormValues] = useState({ email: '', password: '' });
+  const { isLoading, error } = useSelector(state => state.security);
   const onChangeHandler = (event) => {
     let { name, value } = event.target;
     let newFormValues = {
       ...formValues,
       [name]: value
     }
+    if (!error) {
+      cleanLoginError(dispatch);
+    }
     setFormValues(newFormValues);
   }
-  const onSignInClick = (e) => {
+  const onSignInClick = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    alert(JSON.stringify(formValues));
-    Navigator("/signin")
+    
+    Navigator('/signin');
   }
-  const onLoginClick = (e) => {
+  const onLoginClick = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    Navigator("/login");
+   
+    const isLoginSuccess = await submitLogin(dispatch, formValues.email, formValues.password);
+    console.log(error);
+    if(isLoginSuccess){
+      alert('Bienvenido al sistema!');
+      Navigator('/home');
+    }
+    else
+    {
+      alert('Contraseña o usuario incorrectos');
+    }
   }
   return (
     <LoginUx
@@ -31,6 +47,8 @@ const Login = () => {
       onSignInClick={onSignInClick}
       onLoginClick={onLoginClick}
       onChangeHandler={onChangeHandler}
+      isLoading={isLoading}
+      error={error}
     />
   );
 }

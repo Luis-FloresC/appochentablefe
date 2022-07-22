@@ -1,6 +1,11 @@
+import { useSelector } from 'react-redux';
+
 //import './navbar.css';
 const NavBar = ({ title }) => {
-  const linkAvatar = process.env.REACT_APP_API_HOST + "/img/avatardefault_92824.png";
+
+  const { user } = useSelector(state => state.security);
+
+
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
@@ -14,6 +19,7 @@ const NavBar = ({ title }) => {
               <span className="badge badge-sm indicator-item">8</span>
             </div>
           </label>
+       
           <div tabindex="0" className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
             <div className="card-body">
               <span className="font-bold text-lg">8 Items</span>
@@ -24,12 +30,16 @@ const NavBar = ({ title }) => {
             </div>
           </div>
         </div>
+        
         <div className="dropdown dropdown-end">
+       
           <label tabindex="0" className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <img src={linkAvatar} alt='' />
+              <img alt='' src="http://192.168.100.9:3000/img/avatardefault_92824.png"  />
             </div>
+          
           </label>
+          
           <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
             <li>
               <button className="justify-between">
@@ -41,6 +51,7 @@ const NavBar = ({ title }) => {
             <li><button>Logout</button></li>
           </ul>
         </div>
+        <h1>{user && user.nombre}</h1>
       </div>
     </div>
   )
